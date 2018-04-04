@@ -60,6 +60,14 @@ class Output extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_catalogData = $catalogData;
         $this->_escaper = $escaper;
         parent::__construct($context);
+        $this->collectHandlers();
+    }
+
+    /**
+     * This method does nothing but can be used to create a plugin and add handlers.
+     */
+    public function collectHandlers(){
+
     }
 
     /**
