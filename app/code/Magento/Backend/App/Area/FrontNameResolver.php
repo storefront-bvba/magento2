@@ -99,10 +99,10 @@ class FrontNameResolver implements \Magento\Framework\App\Area\FrontNameResolver
      */
     public function isHostBackend()
     {
-        if ($this->scopeConfig->getValue(self::XML_PATH_USE_CUSTOM_ADMIN_URL, ScopeInterface::SCOPE_STORE)) {
-            $backendUrl = $this->scopeConfig->getValue(self::XML_PATH_CUSTOM_ADMIN_URL, ScopeInterface::SCOPE_STORE);
+        if ($this->scopeConfig->getValue(self::XML_PATH_USE_CUSTOM_ADMIN_URL)) {
+            $backendUrl = $this->scopeConfig->getValue(self::XML_PATH_CUSTOM_ADMIN_URL);
         } else {
-            $backendUrl = $this->scopeConfig->getValue(Store::XML_PATH_UNSECURE_BASE_URL, ScopeInterface::SCOPE_STORE);
+            $backendUrl = $this->scopeConfig->getValue(Store::XML_PATH_UNSECURE_BASE_URL);
         }
         $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
         return stripos($this->getHostWithPort($backendUrl), $host) !== false;
